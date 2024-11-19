@@ -1,0 +1,40 @@
+@if(isLoading){
+<div class="spinner-container">
+  <mat-spinner></mat-spinner>
+</div>
+}
+<div class="body">
+  <form style="width: 450px">
+    <div class="login">
+      <img src="../../assets/img/todo.png" alt="" width="60%" height="80%" />
+      <h1 class="h3 mb-3 fw-normal">Iniciar sesión</h1>
+      <mat-form-field class="ancho" appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput [(ngModel)]="email" name="email" />
+      </mat-form-field>
+
+      <br />
+      <div>
+        <!-- Enlace que abrirá el modal -->
+        <a
+          href="javascript:void(0);"
+          (click)="openDialog()"
+          style="text-decoration: underline; color: #3f51b5"
+        >
+          Registrar email nuevo
+        </a>
+      </div>
+      <br />
+
+      <button
+        (click)="onClickIngresar()"
+        class="ancho"
+        mat-raised-button
+        mat-button
+        color="primary"
+      >
+        INGRESAR
+      </button>
+    </div>
+  </form>
+</div>

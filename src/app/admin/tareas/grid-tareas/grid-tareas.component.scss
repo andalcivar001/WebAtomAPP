@@ -1,0 +1,24 @@
+.table-container {
+  overflow-x: auto;
+}
+
+.mat-table {
+  width: 100%;
+  min-width: 600px;
+}
+
+.mat-header-cell,
+.mat-cell {
+  min-width: 150px;
+}
+
+.table-task {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+@media only screen and (max-width: 600px) {
+  .mat-header-cell,
+  .mat-cell {
+    min-width: 200px;
+  }
+}

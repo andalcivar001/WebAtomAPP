@@ -1,0 +1,29 @@
+<h2 mat-dialog-title>Ingrese su Correo Electrónico</h2>
+<mat-dialog-content>
+  <!-- Formulario con un input de tipo email -->
+  <form #emailForm="ngForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" [(ngModel)]="email" name="email" email />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Confirmar Email</mat-label>
+      <input
+        matInput
+        type="email"
+        [(ngModel)]="emailConfirmacion"
+        name="email"
+        email
+      />
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button mat-raised-button color="primary" (click)="onCreate()">
+    Guardar
+  </button>
+  <button mat-button mat-dialog-close mat-raised-button (click)="onCancel()">
+    Cancelar
+  </button>
+</mat-dialog-actions>

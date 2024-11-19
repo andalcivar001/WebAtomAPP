@@ -1,0 +1,30 @@
+/* Asegúrate de que el formulario ocupe el 100% del ancho del modal */
+mat-form-field {
+  width: 100%; /* Hace que los campos de email ocupen todo el ancho */
+  margin-bottom: 16px; /* Añadir un espacio debajo de los campos */
+}
+
+/* Centrar los botones en la parte inferior */
+mat-dialog-actions {
+  display: flex;
+  justify-content: space-between; /* Esto separa los botones */
+  margin-top: 16px; /* Añadir un poco de espacio arriba de los botones */
+}
+
+mat-error {
+  color: #f44336; /* Rojo para mostrar los errores */
+  font-size: 12px; /* Puedes ajustar el tamaño del texto de los errores */
+}
+
+/* Estilos adicionales para los títulos y el contenido */
+mat-dialog-title {
+  font-weight: bold;
+  font-size: 18px;
+  color: #333; /* Color oscuro para el título */
+}
+
+mat-dialog-content {
+  padding: 16px; /* Asegura que haya espacio alrededor del contenido */
+  font-size: 14px; /* Tamaño de fuente del contenido */
+  color: #555; /* Color para el texto dentro del modal */
+}

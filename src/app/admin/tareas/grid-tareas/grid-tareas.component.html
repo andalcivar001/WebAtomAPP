@@ -1,0 +1,121 @@
+@if(isLoading){
+<div class="spinner-container">
+  <mat-spinner></mat-spinner>
+</div>
+}
+
+<app-navbar></app-navbar>
+<mat-toolbar>
+  <span>Listado de Tareas</span>
+  <span class="example-spacer"></span>
+  <button
+    style="margin-left: 15px"
+    mat-raised-button
+    color="primary"
+    (click)="onCrearTask()"
+  >
+    Crear Tarea
+  </button>
+</mat-toolbar>
+<div class="container">
+  @if(arrayTareas.length ){
+
+  <mat-form-field class="mat-filter" style="margin-top: 15px">
+    <mat-label>Filtrar información</mat-label>
+    <input
+      matInput
+      (keyup)="filtrarGrid($event)"
+      placeholder="Ingrese datos para filtrar"
+      #input
+    />
+  </mat-form-field>
+  <div class="table-container">
+    <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <mat-form-field class="mat-filter">
+        <mat-label>Filtrar información</mat-label>
+        <input
+          matInput
+          (keyup)="filtrarGrid($event)"
+          placeholder="Ingrese datos para filtrar"
+          #input
+        />
+      </mat-form-field>
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef class="mat-header-cell">
+          ID
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element" class="mat-header-cell">
+          {{ element.id }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="titulo">
+        <mat-header-cell *matHeaderCellDef class="mat-header-cell">
+          Título
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element" class="mat-header-cell">
+          {{ element.titulo }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="descripcion">
+        <mat-header-cell *matHeaderCellDef class="mat-header-cell">
+          Descripción
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element" class="mat-header-cell">
+          {{ element.descripcion }}
+        </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="fechaCreacion">
+        <mat-header-cell *matHeaderCellDef class="mat-header-cell">
+          Fecha Creación
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element" class="mat-header-cell">
+          {{ dateFormatter(element.fechaCreacion) }}
+        </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="estado">
+        <mat-header-cell *matHeaderCellDef class="mat-header-cell">
+          Estado
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element" class="mat-header-cell">
+          {{ element.estado == "P" ? "Pendiente" : "Completado" }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="acciones">
+        <mat-header-cell *matHeaderCellDef class="mat-header-cell">
+          Acciones
+        </mat-header-cell>
+        <mat-cell mat-cell *matCellDef="let element" class="mat-header-cell">
+          <button
+            mat-icon-button
+            color="primary"
+            (click)="onEditarTask(element.id)"
+          >
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button
+            mat-icon-button
+            color="warn"
+            (click)="onDeleteTask(element.id)"
+          >
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row
+        *matHeaderRowDef="columnasAMostrar"
+        class="mat-header-cell"
+      ></mat-header-row>
+      <mat-row
+        *matRowDef="let row; columns: columnasAMostrar"
+        class="mat-header-cell"
+      ></mat-row>
+    </mat-table>
+  </div>
+  } @if(arrayTareas.length == 0 ){
+  <h3>No hay tareas registradas</h3>
+  }
+</div>

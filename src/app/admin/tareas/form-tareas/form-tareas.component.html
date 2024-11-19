@@ -1,0 +1,58 @@
+@if(isLoading){
+<div class="spinner-container">
+  <mat-spinner></mat-spinner>
+</div>
+}
+<h2 mat-dialog-title>{{ tituloForm }}</h2>
+<mat-dialog-content>
+  <!-- Formulario con un input de tipo email -->
+  <form #emailForm="ngForm" class="form-grid">
+    <mat-form-field appearance="fill">
+      <mat-label>ID:</mat-label>
+      <input
+        matInput
+        type="text"
+        [(ngModel)]="id"
+        name="id"
+        [disabled]="true"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Titulo:</mat-label>
+      <input matInput type="text" [(ngModel)]="titulo" name="titulo" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Descripción:</mat-label>
+      <input
+        matInput
+        type="text"
+        [(ngModel)]="descripcion"
+        name="descripcion"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Fecha Creación</mat-label>
+      <input
+        matInput
+        [matDatepicker]="picker"
+        [(ngModel)]="fechaCreacion"
+        name="fechaCreacion"
+        placeholder="Seleccionar fecha"
+      />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-checkbox [(ngModel)]="estado" name="estado">Completado ?</mat-checkbox>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button mat-raised-button color="primary" (click)="onCreate()">
+    Guardar
+  </button>
+  <button mat-button mat-dialog-close mat-raised-button (click)="onCancel()">
+    Cancelar
+  </button>
+</mat-dialog-actions>

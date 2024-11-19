@@ -1,0 +1,34 @@
+@import "assets/styles/theme";
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Inter, "Helvetica Neue", sans-serif;
+}
+/* Estilo para el Snackbar de éxito */
+
+.mat-toolbar {
+  margin-top: 5px;
+}
+.mat-filter {
+  width: 100%;
+}
+
+.container {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.spinner-container {
+  position: fixed; /* Fijar el spinner en la pantalla */
+  top: 50%; /* Mover el spinner al 50% de la altura */
+  left: 50%; /* Mover el spinner al 50% del ancho */
+  transform: translate(-50%, -50%); /* Centrar el spinner en su propia mitad */
+  z-index: 9999; /* Asegura que el spinner esté por encima de otros elementos */
+  display: flex;
+  justify-content: center; /* Alinea el spinner horizontalmente */
+  align-items: center; /* Alinea el spinner verticalmente */
+}
