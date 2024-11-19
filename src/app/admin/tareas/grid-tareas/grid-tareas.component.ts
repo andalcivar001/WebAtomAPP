@@ -89,8 +89,8 @@ export class GridTareasComponent implements OnInit {
   }
   onCrearTask() {
     const dialogRef = this.dialog.open(FormTareasComponent, {
-      width: '70%',
-      height: '80%',
+      width: '500px',
+      height: '500px',
     });
 
     dialogRef.afterClosed().subscribe(async (result) => {
@@ -116,13 +116,13 @@ export class GridTareasComponent implements OnInit {
   }
 
   dateFormatter(value: Date): string {
-    return formatDate(value, 'yyyy/MM/dd', 'en-US');
+    return formatDate(value, 'yyyy/MM/dd HH:mm:ss', 'en-US');
   }
 
   onEditarTask(id: string) {
     const dialogRef = this.dialog.open(FormTareasComponent, {
-      width: '70%',
-      height: '80%',
+      width: '500px',
+      height: '500px',
       data: { id },
     });
 
@@ -136,8 +136,10 @@ export class GridTareasComponent implements OnInit {
             this._alertService.success('Editado con exito');
             this.arrayTareas.push(res);
             this.obtenerDatos();
+            resolve(true);
           },
           error: (error) => {
+            resolve(false);
             this._alertService.error(error.error.message);
           },
         });

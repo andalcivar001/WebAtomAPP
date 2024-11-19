@@ -2,6 +2,6 @@ export interface Task {
   id: string;
   titulo: string;
   descripcion: string;
-  fechaCreacion: Date;
+  fechaCreacion?: Date;
   estado: string;
 }

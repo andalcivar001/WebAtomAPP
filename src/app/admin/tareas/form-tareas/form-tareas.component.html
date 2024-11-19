@@ -6,7 +6,7 @@
 <h2 mat-dialog-title>{{ tituloForm }}</h2>
 <mat-dialog-content>
   <!-- Formulario con un input de tipo email -->
-  <form #emailForm="ngForm" class="form-grid">
+  <form #emailForm="ngForm">
     <mat-form-field appearance="fill">
       <mat-label>ID:</mat-label>
       <input
@@ -30,18 +30,6 @@
         [(ngModel)]="descripcion"
         name="descripcion"
       />
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-      <mat-label>Fecha Creación</mat-label>
-      <input
-        matInput
-        [matDatepicker]="picker"
-        [(ngModel)]="fechaCreacion"
-        name="fechaCreacion"
-        placeholder="Seleccionar fecha"
-      />
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
 
     <mat-checkbox [(ngModel)]="estado" name="estado">Completado ?</mat-checkbox>

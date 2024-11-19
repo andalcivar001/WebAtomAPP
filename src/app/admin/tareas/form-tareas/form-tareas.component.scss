@@ -24,33 +24,7 @@ mat-dialog-title {
 }
 
 mat-dialog-content {
-  padding: 5px; /* Asegura que haya espacio alrededor del contenido */
+  padding: 16px; /* Asegura que haya espacio alrededor del contenido */
   font-size: 14px; /* Tamaño de fuente del contenido */
   color: #555; /* Color para el texto dentro del modal */
-}
-
-/* Estilo para el formulario con grid */
-.form-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Dos columnas de igual tamaño */
-  gap: 16px; /* Espacio entre las columnas */
-}
-
-.mat-form-field {
-  width: 100%; /* Asegura que los campos ocupen todo el ancho dentro de cada columna */
-}
-
-mat-checkbox {
-  grid-column: span 2; /* El checkbox ocupará ambas columnas */
-}
-
-@media (max-width: 600px) {
-  /* Para pantallas pequeñas, cambia a una sola columna */
-  .form-grid {
-    grid-template-columns: 1fr; /* Una sola columna en pantallas pequeñas */
-  }
-
-  mat-checkbox {
-    grid-column: span 1; /* El checkbox ocupará solo una columna */
-  }
 }

@@ -17,7 +17,6 @@ export class FormTareasComponent implements OnInit {
   id?: string;
   titulo?: string;
   descripcion: string = '';
-  fechaCreacion?: Date;
   estado: boolean = false;
   tituloForm?: string;
   isLoading: boolean = false;
@@ -41,7 +40,6 @@ export class FormTareasComponent implements OnInit {
               const task = { ...res };
               this.titulo = task.titulo;
               this.descripcion = task.descripcion;
-              this.fechaCreacion = new Date(task.fechaCreacion);
               this.estado = task.estado === 'P' ? false : true;
             }
             resolve(true);
@@ -67,7 +65,6 @@ export class FormTareasComponent implements OnInit {
       id: this.id!,
       titulo: this.titulo!,
       descripcion: this.descripcion,
-      fechaCreacion: new Date(this.fechaCreacion!),
       estado: this.estado ? 'C' : 'P',
     };
     this.dialogRef.close(task);
@@ -81,11 +78,6 @@ export class FormTareasComponent implements OnInit {
 
     if (!this.descripcion || this.descripcion.trim() === '') {
       this._alertService.warning('Ingrese descripción');
-      return false;
-    }
-
-    if (!this.fechaCreacion) {
-      this._alertService.warning('Ingrese fecha de creación');
       return false;
     }
 
