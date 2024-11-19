@@ -14,10 +14,14 @@ De igual manera puedes documentar dentro de este archivo todo lo que deseas cont
 Este proyecto fué desarrollado en Angular 17
 Se instaló la sweetAlert2 para mostrar los mensajes
 Se utilizaron los componentes de Material para diseñar las pantallas
-Estructura basada en componentes
-Configuración de rutas
-Se implementaron servicios e intefaces, con autenticacion de jsonwebtoken
-Diseño responsivo
+Estructura basada en componentes y servicios
+Se implementaron servicios,rutas e intefaces, con autenticacion de jsonwebtoken
+github del codigo del front https://github.com/andalcivar001/WebAtomAPP
+
+Las APIS fueron desarrolladas en Node JS, typescript, express
+Se habilitaron los cors para permitir las urls de localhost y del hosting de firebase
+Se utilizo la libreria de jsonwebtoken para la autenticacion con su respectivo middleware
+github del codigo de las apis https://github.com/andalcivar001/WebAtomApi
 
 ## Development server
 
