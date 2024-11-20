@@ -14,15 +14,14 @@ export class TaskService {
   constructor(
     private _http: HttpClient,
     private _localStorageService: LocalStorageService
-  ) {
-    this.token = this._localStorageService.getItem('token');
-  }
+  ) {}
 
   // Método privado para obtener los encabezados
   private getHeaders(): HttpHeaders {
-    return new HttpHeaders({
-      Authorization: `Bearer ${this.token}`, // Enviar el token en los encabezados
+    const header = new HttpHeaders({
+      Authorization: `Bearer ${this._localStorageService.getItem('token')}`, // Enviar el token en los encabezados
     });
+    return header;
   }
 
   // Métodos de la API usando el método privado para los encabezados
