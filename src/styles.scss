@@ -22,13 +22,20 @@ body {
   margin-right: 20px;
 }
 
-.spinner-container {
-  position: fixed; /* Fijar el spinner en la pantalla */
-  top: 50%; /* Mover el spinner al 50% de la altura */
-  left: 50%; /* Mover el spinner al 50% del ancho */
-  transform: translate(-50%, -50%); /* Centrar el spinner en su propia mitad */
-  z-index: 9999; /* Asegura que el spinner esté por encima de otros elementos */
+.spinner-overlay {
+  position: fixed; /* Fija el contenedor sobre toda la pantalla */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
   display: flex;
-  justify-content: center; /* Alinea el spinner horizontalmente */
-  align-items: center; /* Alinea el spinner verticalmente */
+  justify-content: center; /* Centra el spinner horizontalmente */
+  align-items: center; /* Centra el spinner verticalmente */
+  z-index: 9999; /* Asegura que el spinner esté por encima de otros elementos */
+}
+
+/* Evita el desplazamiento (scroll) mientras el spinner está activo */
+body.spinner-active {
+  overflow: hidden;
 }
