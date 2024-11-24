@@ -152,8 +152,8 @@ export class GridTareasComponent implements OnInit {
     this._alertService
       .question('¿Estás seguro?', 'Esta acción es irreversible.')
       .then(async (result) => {
-        this.isLoading = true;
         if (result.isConfirmed) {
+          this.isLoading = true;
           await new Promise(async (resolve) => {
             this._taskService.deleteTask(id).subscribe({
               next: (res) => {
@@ -168,7 +168,7 @@ export class GridTareasComponent implements OnInit {
             });
           });
         }
-        this.isLoading = true;
+        this.isLoading = false;
       });
   }
 }
